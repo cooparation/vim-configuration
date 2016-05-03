@@ -1,10 +1,35 @@
+"map <F9> :call SaveInputData()<CR>
+"func! SaveInputData()
+"	exec "tabnew"
+"	exec 'normal "+gP'
+"	exec "w! /tmp/input_data"
+"endfunc
+
+"colorscheme torte   "设置配色方案
+"colorscheme murphy
+colorscheme desert   "常用"
+"colorscheme evening  "常用" 
+"colorscheme elflord   "常用"
+""colorscheme ron
+"colorscheme pablo
+"colorscheme shine
+"colorscheme peachpuff  
+"colorscheme blue
+
+"set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+"set termencoding=utf-8
+set encoding=utf-8 "编码设置
+set langmenu=zh_CN.UTF-8  "可以显示中文，语言设置
+"set fileencodings=ucs-bom,utf-8,cp936
+"set fileencoding=utf-8
+"
 if !empty($GOROOT)
   set rtp+=$GOROOT/misc/vim
 elseif isdirectory('/usr/local/go')
   set rtp+=/usr/local/go/misc/vim
 end
 
-set nocompatible
+set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
 " source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vim
 " behave mswin
@@ -13,30 +38,41 @@ set nocompatible
 " source ~/.vim/cscopePath.vim
 
 
-" Chenyh's setting
 " for Linux
 
-set number   
+set autowrite               "自动保存
+set noeb " 去掉输入错误的提示声音
+set number " 显示行号
 " set cmdheight=2
 colo darkblue  
-set autoindent
-set smartindent
-set nocompatible 
+set autoindent " 自动缩进
+set smartindent " 为C程序提供自动缩进
 set autochdir
-set smarttab
-set expandtab                    
-set tabstop=4                           " tabstops of 8
+set smarttab " 在行和段开始处使用制表符
+set expandtab " 用空格代替制表符tab                   
+set tabstop=4                           " tabstops of 8 " Tab键的宽度
+set softtabstop=4 " 统一缩进为4
 set shiftwidth=4                        " indents of 8
 set textwidth=78                        " screen in 80 columns wide, wrap at 78
 set backspace=indent,eol,start
+set ignorecase "搜索忽略大小写
+set hlsearch "搜索逐字符高亮
 
+if version >= 603   " 显示中文帮助
+	set helplang=cn
+	set encoding=utf-8
+endif
 
 " set mouse=a
 
 set nocp
-filetype off
-syntax on    
-
+"filetype off
+filetype on  " 侦测文件类型
+filetype plugin on " 载入文件类型插件
+filetype indent on " 不同文件类型采用不同缩进
+syntax on   " 语法高亮  
+set showcmd         " 输入的命令显示出来，看的清楚些
+set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
 
 set isfname-==
 
@@ -54,33 +90,12 @@ noremap <c-up> <c-w>k
 noremap <c-left> <c-w>h
 noremap <c-right> <c-w>l
 
-set hlsearch
-
-"let OmniCpp_DefaultNamespaces = ["std"]
-let OmniCpp_GlobalScopeSearch = 1  " 0 or 1
-let OmniCpp_NamespaceSearch = 1   " 0 ,  1 or 2
-let OmniCpp_DisplayMode = 0
-let OmniCpp_ShowScopeInAbbr = 1
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteArrow = 1
-let OmniCpp_MayCompleteScope = 1
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-set completeopt=menu
-
-
-set foldenable
+set foldenable " 允许折叠  
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " map <esc>
 imap jk <Esc>
 set timeoutlen=500
-
 
 nnoremap <C-N> :tabnew<space>
 
@@ -160,6 +175,26 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsListSnippets = '<c-l>'
 
 
+"NERDtee设定
+let NERDChristmasTree=1
+let NERDTreeAutoCenter=1
+let NERDTreeBookmarksFile=$VIM.'\Data\NerdBookmarks.txt'
+let NERDTreeMouseMode=2
+let NERDTreeShowBookmarks=1
+let NERDTreeShowFiles=1
+let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=1
+let NERDTreeWinPos='left'
+let NERDTreeWinSize=31
+nnoremap f :NERDTreeToggle
+map <F7> :NERDTree<CR> 
+
+"""""""""""""set Taglist设定""""""""""""""
+let Tlist_Show_One_File=1     "不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow=1   "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Ctags_Cmd="/usr/bin/ctags" "将taglist与ctags关联
+let Tlist_Use_SingleClick=1  "设置单击tag就跳到tag定义的位置 需要设置mouse=on
+
 " Added By MNY
 " configure tags
 set tags+=~/.vim/tags/cpp
@@ -167,6 +202,7 @@ set tags+=~/.vim/tags/opencv2
 set tags+=~/.vim/tags/opencv
 set tags+=~/.vim/tags/ndk_4_8
 
+""""""""""""set OmniCppComplete"""""""""""""
 " build tags of your own project with ctrl+f12
 map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 let OmniCpp_GlobalScopeSearch = 1  " 0 or 1
@@ -178,6 +214,11 @@ let OmniCpp_ShowAccess = 1
 let OmniCpp_MayCompleteDot = 1
 let OmniCpp_MayCompleteArrow = 1
 let OmniCpp_MayCompleteScope = 1
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 set completeopt=menuone,menu,longest,preview
 
@@ -190,10 +231,8 @@ set completeopt=menuone,menu,longest,preview
 highlight Pmenu guibg=darkgrey guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
 
-let OmniCpp_MayCompleteDot=1 
 
 """"""""""vim-trailing-whitespace""""""""""""""
 """""""Bundle 'bronson/vim-trailing-whitespace'
 "map <leader><space> :FixWhitespace<cr>
 map <F5> :FixWhitespace<cr>
-
