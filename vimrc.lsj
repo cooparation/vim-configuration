@@ -8,12 +8,12 @@
 "colorscheme torte   "设置配色方案
 "colorscheme murphy
 colorscheme desert   "常用"
-"colorscheme evening  "常用" 
+"colorscheme evening  "常用"
 "colorscheme elflord   "常用"
 ""colorscheme ron
 "colorscheme pablo
 "colorscheme shine
-"colorscheme peachpuff  
+"colorscheme peachpuff
 "colorscheme blue
 
 "set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
@@ -29,7 +29,7 @@ elseif isdirectory('/usr/local/go')
   set rtp+=/usr/local/go/misc/vim
 end
 
-set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
+set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 " source $VIMRUNTIME/vimrc_example.vim
 " source $VIMRUNTIME/mswin.vim
 " behave mswin
@@ -43,13 +43,13 @@ set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本�
 set autowrite               "自动保存
 set noeb " 去掉输入错误的提示声音
 set number " 显示行号
-" set cmdheight=2
-colo darkblue  
+ set cmdheight=2
+colo darkblue
 set autoindent " 自动缩进
 set smartindent " 为C程序提供自动缩进
 set autochdir
 set smarttab " 在行和段开始处使用制表符
-set expandtab " 用空格代替制表符tab                   
+set expandtab " 用空格代替制表符tab
 set tabstop=4                           " tabstops of 8 " Tab键的宽度
 set softtabstop=4 " 统一缩进为4
 set shiftwidth=4                        " indents of 8
@@ -70,9 +70,10 @@ set nocp
 filetype on  " 侦测文件类型
 filetype plugin on " 载入文件类型插件
 filetype indent on " 不同文件类型采用不同缩进
-syntax on   " 语法高亮  
+syntax on   " 语法高亮
 set showcmd         " 输入的命令显示出来，看的清楚些
 set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
+set paste
 
 set isfname-==
 
@@ -90,7 +91,7 @@ noremap <c-up> <c-w>k
 noremap <c-left> <c-w>h
 noremap <c-right> <c-w>l
 
-set foldenable " 允许折叠  
+set foldenable " 允许折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " map <esc>
@@ -101,13 +102,13 @@ nnoremap <C-N> :tabnew<space>
 
 let g:winManagerWindowLayout = "TagList|FileExplorer,BufExplorer"
 let g:winManagerWidth = 30
- 
+
 nmap <silent> <F3> :WMToggle<cr>
 let g:AutoOpenWinManager = 1
 
-if has("win32") 
-set guifont=Consolas:h11 
-endif 
+if has("win32")
+set guifont=Consolas:h11
+endif
 
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 
@@ -127,7 +128,7 @@ filetype off
 " call vundle#rc()
 
 " let Vundle manage Vundle
-" " required! 
+" " required!
 " Bundle 'gmarik/vundle'
 " Bundle 'Valloric/YouCompleteMe'
 " Bundle 'SirVer/ultisnips'
@@ -187,7 +188,7 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos='left'
 let NERDTreeWinSize=31
 nnoremap f :NERDTreeToggle
-map <F7> :NERDTree<CR> 
+map <F7> :NERDTree<CR>
 
 """""""""""""set Taglist设定""""""""""""""
 let Tlist_Show_One_File=1     "不同时显示多个文件的tag，只显示当前文件的
@@ -227,7 +228,7 @@ set completeopt=menuone,menu,longest,preview
 " inoremap <expr> <C-J> pumvisible()?"\<PageDown>\<C-N>\<C-P>":"\<C-X><C-O>"
 " inoremap <expr> <C-K> pumvisible()?"\<PageUp>\<C-P><C-N>":"\<C-K>"
 " inoremap <expr> <C-U> pumvisible()?"\<C-E>":"\<C-U>"
-" color 
+" color
 highlight Pmenu guibg=darkgrey guifg=black
 highlight PmenuSel guibg=lightgrey guifg=black
 
