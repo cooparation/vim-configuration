@@ -49,9 +49,9 @@ set autoindent " 自动缩进
 set smartindent " 为C程序提供自动缩进
 set autochdir
 set smarttab " 在行和段开始处使用制表符
-set expandtab " 用空格代替制表符tab
 set tabstop=4                           " tabstops of 8 " Tab键的宽度
 set softtabstop=4 " 统一缩进为4
+set expandtab " 用空格代替制表符tab
 set shiftwidth=4                        " indents of 8
 set textwidth=78                        " screen in 80 columns wide, wrap at 78
 set backspace=indent,eol,start
@@ -73,7 +73,7 @@ filetype indent on " 不同文件类型采用不同缩进
 syntax on   " 语法高亮
 set showcmd         " 输入的命令显示出来，看的清楚些
 set iskeyword+=_,$,@,%,#,- " 带有如下符号的单词不要被换行分割
-set paste
+"set paste
 
 set isfname-==
 
