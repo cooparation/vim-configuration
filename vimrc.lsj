@@ -239,3 +239,5 @@ highlight PmenuSel guibg=lightgrey guifg=black
 """""""Bundle 'bronson/vim-trailing-whitespace'
 "map <leader><space> :FixWhitespace<cr>
 map <F5> :FixWhitespace<cr>
+""""" remove auto comment function
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
