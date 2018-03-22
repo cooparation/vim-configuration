@@ -16,3 +16,4 @@ clipboard could be work, or you may be install vim with follows:
 * nerdtree https://github.com/scrooloose/nerdtree.git
 * cpp autocomplete, need to download the cpp_src to vim and ctags the src, details to see http://blog.csdn.net/doc_sgl/article/details/47205779
 * YouCompleteMe: details to see https://github.com/Valloric/YouCompleteMe.git
+* ctrlp: https://github.com/ctrlpvim/ctrlp.vim, Full path fuzzy file, buffer, mru, tag, ... finder for Vim
