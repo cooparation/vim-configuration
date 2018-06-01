@@ -235,3 +235,6 @@ highlight PmenuSel guibg=lightgrey guifg=black
 map <F5> :FixWhitespace<cr>
 """"" remove auto comment function
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+"" Vim jump to the last position when reopening a file
+au BufReadPost * exe "normal! g`\""
