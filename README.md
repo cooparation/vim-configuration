@@ -1,7 +1,7 @@
 # my-vim-configuration
 
 <p float="center">
-  <img src="interface.jpeg" width="68%" />
+  <img src="interface.jpeg" width="98%" />
 </p>
 
 ## Usage
