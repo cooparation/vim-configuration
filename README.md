@@ -1,8 +1,10 @@
 # my-vim-configuration
 
-2016.05.03
+<p float="center">
+  <img src="interface.jpeg" width="98%" />
+</p>
 
-##Usage
+## Usage
 * cp -fr vim.lsj ~/.vim
 * cp vimrc.lsj ~/.vimrc
 
