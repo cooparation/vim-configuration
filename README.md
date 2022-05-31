@@ -4,9 +4,17 @@
   <img src="interface.jpeg" width="98%" />
 </p>
 
+## Requirements
+* install vim 8.0+
+* ``` tar zxf v8.2.5046.zip && cd vim-8.2.5046 ```
+* ``` ./configure --with-features=huge --enable-pythoninterp=yes --enable-cscope --enable-fontset --with-python-config-dir=/usr/lib64/python2.7/config --enable-python3interp=yes --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu --with-python3-command=/usr/bin/python3 --enable-multibyte ```
+
 ## Usage
+* install vim v8.0 directly or tar zxf v8.0.0134
 * cp -fr vim.lsj ~/.vim
 * cp vimrc.lsj ~/.vimrc
+* git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+* start vim and run ```:PluginInstall```
 
 ## Check Status
 * ```vim --version | grep clip*```   
