@@ -108,15 +108,27 @@ nmap M :Man <cword><CR>
 
 noremap <C-T> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --if0=yes . <CR>
 
-" filetype off
-" set rtp+=~/.vim/bundle/vundle/
-" call vundle#rc()
+set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+" init vundle
+call vundle#begin()
+" let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
 
 " let Vundle manage Vundle
 " " required!
 " Bundle 'gmarik/vundle'
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 " Bundle 'SirVer/ultisnips'
+plugin 'Valloric/YouCompleteMe'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+" All of your Plugins must be added before the following line
+call vundle#end() " required
 
 " for YouCompleteMe
 let g:ycm_global_ycm_extra_conf = expand("~/.vim/.ycm_extra_conf.py")
@@ -184,8 +196,9 @@ let Tlist_Use_SingleClick=1  "设置单击tag就跳到tag定义的位置 需要�
 let Tlist_Sort_Type="name" " Taglist 按照名字进行排序
 "let Tlist_File_Fold_Auto_Close=1
 
+" open all plugin
 filetype plugin indent on
-set completeopt=menuone,menu,longest
+set completeopt=menuone,menu,longest " 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 set completeopt-=preview " 去掉在自动补全之后分割的预览窗口
 
 """"""""""""""set tags"""""""
@@ -241,3 +254,4 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "" Vim jump to the last position when reopening a file
 au BufReadPost * exe "normal! g`\""
+
