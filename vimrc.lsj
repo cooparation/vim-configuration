@@ -111,7 +111,7 @@ noremap <C-T> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --if0=yes . <CR
 set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
 filetype off
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 " init vundle
 call vundle#begin()
 " let Vundle manage Vundle
@@ -123,12 +123,19 @@ Plugin 'VundleVim/Vundle.vim'
 Bundle 'Valloric/YouCompleteMe'
 " Bundle 'SirVer/ultisnips'
 plugin 'Valloric/YouCompleteMe'
+Plugin 'MattesGroeger/vim-bookmarks'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
+
+" bookmarks https://github.com/MattesGroeger/vim-bookmarks
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
 
 " for YouCompleteMe
 let g:ycm_global_ycm_extra_conf = expand("~/.vim/.ycm_extra_conf.py")
